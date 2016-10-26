@@ -21,28 +21,82 @@
     <script type="text/javascript" src="/public/vendor.bundle.js"></script>
     
     <script type="text/javascript" src="/public/bundle.js"></script>
+
+    <style>
+      .disabled {
+        pointer-events: none;
+        color: gray;
+      }
+      .disabled a {
+        color: gray;
+      }
+    </style>
   </head>
   <body>
     <!--[if lte IE 9]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser.Please<a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
     <div id="wrapper">
-      <ul class="accordion" data-accordion>
-        <li class="accordion-item is-active" data-accordion-item>
-          <a href="#" class="accordion-title">Accordion 1</a>
-          <div id="accordion-1" class="accordion-content" data-tab-content>
-            If you see this text, something is wrong.
+      <ul class="accordion" data-accordion data-allow-all-closed="false">
+        <li id="accordion-1" class="accordion-item is-active" data-accordion-item>
+          <a href="#" class="accordion-title small">Accordion 1</a>
+          <div class="accordion-content" data-tab-content>
+            
+            <!-- First row of inputs -->
+            <div class="row">
+              <div class="small-6 medium-4 large-2 columns">
+                <input class="log-input" type="text"/>
+              </div>
+              <div class="small-6 medium-4 large-2 columns">
+                <input class="log-input" type="text"/>
+              </div>
+              <div class="small-6 medium-4 large-2 columns">
+                <input class="log-input" type="text"/>
+              </div>
+              <div class="small-6 medium-4 large-2 columns">
+                <input class="log-input" type="text"/>
+              </div>
+              <div class="small-6 medium-4 large-2 columns">
+                <input class="log-input" type="text"/>
+              </div>
+              <div class="small-6 medium-4 large-2 columns">
+                <input class="log-input" type="text"/>
+              </div>
+            </div>
+            
+            
+
+            <!-- Bottom panel of first accordion pane -->
+            <div class="menu-centered">
+              <ul class="menu">
+                <li><a id="generate-1" class="button" href="#">Generate</a></li>
+                <!--li><a class="button" href="#">Two</a></li>
+                <li><a class="button" href="#">Three</a></li>
+                <li><a class="button" href="#">Four</a></li-->
+              </ul>
+            </div>
+
           </div>
         </li>
-        <li class="accordion-item" data-accordion-item>
+        <li id="accordion-2" class="accordion-item disabled" data-accordion-item>
           <a href="#" class="accordion-title">Accordion 2</a>
-          <div id="accordion-2" class="accordion-content" data-tab-content>
+          <div class="accordion-content" data-tab-content>
             Players found in the logs.
+
+            <!-- Bottom panel of first accordion pane -->
+            <div class="menu-centered">
+              <ul class="menu">
+                <li><a id="generate-2" class="button" href="#">Generate</a></li>
+                <!--li><a class="button" href="#">Two</a></li>
+                <li><a class="button" href="#">Three</a></li>
+                <li><a class="button" href="#">Four</a></li-->
+              </ul>
+            </div>
           </div>
         </li>
-        <li class="accordion-item" data-accordion-item>
+        <li id="accordion-3" class="accordion-item disabled" data-accordion-item>
           <a href="#" class="accordion-title">Accordion 3</a>
-          <div id="accordion-3" class="accordion-content" data-tab-content>
+          <div  class="accordion-content" data-tab-content>
             Charts.
           </div>
         </li>
