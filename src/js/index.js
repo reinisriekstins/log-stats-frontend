@@ -19,7 +19,7 @@ $(() => {
 
   // create array of promises
   let promises = new Array(
-    document.querySelectorAll('.log-input').length
+    document.querySelectorAll('.log-input').length*2
   )
 
   // on input value change validate url and
@@ -37,21 +37,24 @@ $(() => {
           urlPath = parsedUrl.path
       
       function validLogsUrl() {
-        return (hostUrl === 'logs.tf' && urlPath.match(/^\/\d{5,}$/g))
-      }
-      /*
-      if ( validLogsUrl() ) {
-        axios.all([
-          axios(`http://logs.tf/json${urlPath}`),
-          axios(`http://logs.tf${urlPath}`)
-        ]).then((res) => {
-          let data = res.data
+        return new Promise ((resolve reject) => {
+          if ( reqUrl.match(/\s+/g)) resolve(null)
+          else if (hostUrl === 'logs.tf' && urlPath.match(/^\/\d{5,}$/g) {
+            resolve() /// what do i resolve
+          }
+          else /// if some random string or url
 
-        })//.catch((err) => console.log(err))
+
+        })
+      }
+      
+      if ( validLogsUrl() ) {
+          axios(`http://logs.tf/json${urlPath}`).then(//validate recursively then push into promises arr),
+          axios(`http://logs.tf${urlPath}`)// see above
       }
       else {
 
-      }*/
+      }
       /// if valid, send axios requests
       /// .then() validate received data
       /// if not valid, display message
@@ -60,8 +63,7 @@ $(() => {
   })
 
   $('#generate-1').click(() => {
-    /// take the array of promises, flatten it(?)
-    /// and Promise.all() them
+    /// Promise.all(promises) 
 
     /// generate list of players in accordion-2
   })
