@@ -9,19 +9,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.css" />
     
     <!-- Foundation 6 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
-    
-    <script type="text/javascript" src="/public/vendor.bundle.js"></script>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css">
+
+    <!-- jQuery JS from CDN, because there is no Foundation npm module -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+
     <!-- Foundation 6 JS -->
-    <script src="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.js"></script>
+    
+    <!-- axios, lodash, c3 + dependencies -->
+    <script type="text/javascript" src="/public/vendor.bundle.js"></script>
     
     <script type="text/javascript" src="/public/bundle.js"></script>
   </head>
   <body>
     <!--[if lte IE 9]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser.Please<ahref="http://browsehappy.com/">upgrade your browser</a> to improve yourexperienceandsecurity.</p>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser.Please<a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
-    <div id="wrapper">If you see this text, something is wrong.</div>
+    <div id="wrapper">
+      <ul class="accordion" data-accordion>
+        <li class="accordion-item is-active" data-accordion-item>
+          <a href="#" class="accordion-title">Accordion 1</a>
+          <div id="accordion-1" class="accordion-content" data-tab-content>
+            If you see this text, something is wrong.
+          </div>
+        </li>
+        <li class="accordion-item" data-accordion-item>
+          <a href="#" class="accordion-title">Accordion 2</a>
+          <div id="accordion-2" class="accordion-content" data-tab-content>
+            Players found in the logs.
+          </div>
+        </li>
+        <li class="accordion-item" data-accordion-item>
+          <a href="#" class="accordion-title">Accordion 3</a>
+          <div id="accordion-3" class="accordion-content" data-tab-content>
+            Charts.
+          </div>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
