@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>mocha test</title>
+
+    <!-- Mocha CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.1.2/mocha.css" />
+    
+    <!-- jQuery JS from CDN, because there is no Foundation npm module -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+
+    <!-- Foundation 6 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.js"></script>
+    
+    <!-- axios, lodash, c3 + dependencies -->
+    <script type="text/javascript" src="localhost:3000/public/vendor.bundle.js"></script>
+    <script type="text/javascript" src="../dist/vendor.bundle.js"></script>
+    
+    <script type="text/javascript" src="localhost:3000/public/bundle.js"></script>
+    <script type="text/javascript" src="../dist/bundle.js"></script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <!-- Mocha JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.1.2/mocha.js"></script>
+
+    <!-- Chai JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+
+    <script>mocha.setup('bdd')</script>
+    <script>const expect = chai.expect</script>
+
+    <script src="./test.initial.js"></script>
+    
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>
