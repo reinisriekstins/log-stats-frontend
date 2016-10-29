@@ -3,16 +3,29 @@ import c3 from 'c3'
 import _ from 'lodash'
 import url from 'url'
 
-const validate = {
-  logHtml: () => {
+function validateInputVal (inputVal) {
+  if ( !inputVal || /\s+/g.test( inputVal ) ) return null
 
-  },
-  logJson: () => {
+  let parsedUrl, hostUrl, urlPath
 
-  }
+  // remove url hash
+  inputVal.replace( /#\d+$/g, '' )
+
+  // add slash
+  if ( /^\d{5,}$/g.test(inputVal) ) inputVal = `/${inputVal}`
+
+  if ( /^\/?\d{5,}$/g.test(inputVal) ) return inputVal
+
+  // for url module to be able to parse inputVal
+  inputVal.startsWith('http://') ? null : inputVal = `http://${inputVal}`
+
+  parsedUrl = url.parse(inputVal)
+  hostUrl = parsedUrl.host
+  urlPath = parsedUrl.path
+
+  if (hostUrl === 'logs.tf' && urlPath.match(/^\/\d{5,}$/g)) return urlPath
+  else return false
 }
-
-
 
 $(() => {
   let accordion = new Foundation.Accordion($('.accordion'))
@@ -22,34 +35,27 @@ $(() => {
     document.querySelectorAll('.log-input').length*2
   )
 
+  
+
   // on input value change validate url and
   // send request with axios
   $('.log-input').each((i, elem) => {
     $(elem).on('keyup', _.debounce(() => {
 
-      let reqUrl = $(elem).val()
+      let url = validateInputVal( $(elem).val() )
 
-      // for url module to be ablt to parse reqUrl
-      reqUrl.startsWith('http://') ? null : reqUrl = 'http://' + reqUrl
-
-      let parsedUrl = url.parse(reqUrl),
-          hostUrl = parsedUrl.host,
-          urlPath = parsedUrl.path
-      
-      function validLogsUrl() {
-        return new Promise ((resolve reject) => {
-          if ( reqUrl.match(/\s+/g)) resolve(null)
-          else if (hostUrl === 'logs.tf' && urlPath.match(/^\/\d{5,}$/g) {
-            resolve() /// what do i resolve
-          }
-          else /// if some random string or url
-
-
-        })
+      if (url) {
+        //// update dom to remove notification
+        // axios
       }
+      else //// update dom with notification
+      
+      Promise
+        .resolve( )
+        .then(axios.get)// http request via axios
       
       if ( validLogsUrl() ) {
-          axios(`http://logs.tf/json${urlPath}`).then(//validate recursively then push into promises arr),
+          axios(`http://logs.tf/json${urlPath}`).then()//validate recursively then push into promises arr),
           axios(`http://logs.tf${urlPath}`)// see above
       }
       else {
@@ -64,6 +70,7 @@ $(() => {
 
   $('#generate-1').click(() => {
     /// Promise.all(promises) 
+    /// if all resolutions are null, dont do shit
 
     /// generate list of players in accordion-2
   })
