@@ -4,9 +4,8 @@ const CommonsChunkPlugin = require('./node_modules/webpack/lib/optimize/CommonsC
 
 module.exports = {
 	entry: {
-    index: './src/js/index.js',
-    vendor: ['axios', 'c3', 'jquery', 'lodash'/*, 'react', 'react-dom'*/]
-    
+    index: ['./src/js/functions.js', './src/js/index.js'],
+    vendor: ['axios', 'c3', 'lodash', 'url'/*, 'react', 'react-dom'*/]
   },
 	output: {
 		path: path.join(__dirname, 'dist'),

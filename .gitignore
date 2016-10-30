@@ -46,3 +46,4 @@ jspm_packages
 # custom files
 dist/*
 !dist/index.html
+!dist/test.html
